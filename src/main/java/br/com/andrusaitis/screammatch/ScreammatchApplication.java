@@ -1,8 +1,6 @@
 package br.com.andrusaitis.screammatch;
 
-import br.com.andrusaitis.screammatch.model.DadosSerie;
-import br.com.andrusaitis.screammatch.service.ConsumoApi;
-import br.com.andrusaitis.screammatch.service.ConverteDados;
+import br.com.andrusaitis.screammatch.Principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,11 +15,9 @@ public class ScreammatchApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		var consumoApi = new ConsumoApi();
-		var json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&apikey=68e6c527");
-
-		ConverteDados conversor = new ConverteDados();
-		DadosSerie dados = conversor.obterDados(json,DadosSerie.class);
-		System.out.println(dados);
+		//instanciando a classe principal que esta consumindo a api e obtendo os dados
+		Principal principal = new Principal();
+		//Chamando o método dentro da classe que fara a tarefa
+		principal.exibeMenu();
 	}
 }
