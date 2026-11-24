@@ -28,7 +28,7 @@ public class Principal {
 
     //Atribuindo variaveis para o endereço e a api key finais que não serão modificadas
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = "&apikey=REMOVIDO";
+    private final String API_KEY = "&apikey=" + System.getenv("OMDB_API_KEY");
 
     public void exibeMenu(){
         System.out.println("Digite o nome da serie desejada!");
